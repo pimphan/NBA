@@ -2,6 +2,7 @@ package com.example.NBAshop.Controller;
 
 import com.example.NBAshop.Model.Shirt;
 import com.example.NBAshop.Repository.ShirtRepository;
+import com.example.NBAshop.Service.ShirtService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,8 +12,9 @@ import java.util.List;
 @RestController
 public class Controller {
 
+
     @Autowired
-    ShirtRepository shirtRepository;
+    ShirtService shirtService;
 
 
     @RequestMapping("/")    // แบบนี้
@@ -29,7 +31,7 @@ public class Controller {
 
     @RequestMapping("/getallData")    // แบบนี้
     public List<Shirt> getallData() {
-        return shirtRepository.findAll();
+        return shirtService.getallData();
     }
 
 }
